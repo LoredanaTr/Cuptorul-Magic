@@ -1,0 +1,24 @@
+{% extends "App_CuptorulMagic/base.html" %}
+{% block content %}
+<div class="container">
+   <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
+       <div class="col">
+           <img src="{{ product.image.url }}" alt="{{ product.name }} Image" class="img-fluid">
+       </div>
+       <div class="col">
+           <div class="row">
+               <h5 class="card-title">{{ product.name }} | <span class="text-success">Available: {{product.available_quantity}}</span></h5>
+               <h5 class="card-title text-danger">Price: {{ product.price }}</h5>
+               <p class="card-text"><p> {{product.description}}</p>
+               <p class="card-text"><p>Ingredients: {{product.ingredients}}</p>
+               <p class="card-text"><small class="text-muted">Weight: {{ product.weight_grams }} g</small></p>
+           </div>
+           {% if user %}
+               <a href="#">
+                   <button class="btn-custom-reverse spaced-top-2">Adauga in cos</button>
+               </a>
+           {% endif %}
+       </div>
+   </div>
+</div>
+{% endblock %}
