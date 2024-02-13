@@ -1,7 +1,7 @@
 """
 WSGI config for CuptorulMagic project.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+It exposes the WSGI cdeactivateallable as a module-level variable named ``application``.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/

@@ -1,5 +1,6 @@
 {% extends "App_CuptorulMagic/base.html" %}
 {% block content %}
+
 <div class="container">
     <h2 style="text-align: center;
     font-size: 70px;
@@ -10,29 +11,32 @@
     line-height: 1em;
     letter-spacing: -3px;
     margin-top: 50px;
-    margin-bottom: 50px;">Toate Produsele</h2>
-    <div class="container">
-        <div class="row">
-         {% for product in products %}
+    margin-bottom: 50px;">Products</h2>
+    <div class="row">
+         {% for product in product_list %}
              <div class="col-6 my-4">
                  <div class="card" >
-                    <img src="{{ product.image.url }}" alt="{{ product.name }} Image">
-                    <div class="card-body">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }} Image">
+                 </div>
+                    <div class="card-body product-container">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text"> {{ product.description }}</p>
-                        <p class="card-text">Pret: {{ product.price }} euro</p>
+                        <p class="card-text">Price: {{ product.price }} euro</p>
                         <a href="/product/{{ product.id }}">
-                            <button class="btn-custom spaced-top-2">Vezi detalii</button>
+                            <button class="btn-custom spaced-top-2">See details</button>
                         </a>
-                        {% if user %}
-                        <a href="#">
-                            <button class="btn-custom-reverse spaced-top-2">Adauga in cos</button>
-                        </a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'App_CuptorulMagic:add_to_card' product_id=product.id %}">
+                                <button class="btn-custom-reverse spaced-top-2">Add to cart</button>
+                            </a>
                         {% endif %}
-                     </div>
-                 </div>
-            </div>
-        {% endfor %}
-        </div>
+                    </div>
+             </div>
+
+             {% if forloop.counter|divisibleby:2 and not forloop.last %}
+                 </div></div><div class="container"><div class="row">
+             {% endif %}
+         {% endfor %}
+    </div>
 </div>
 {% endblock %}
