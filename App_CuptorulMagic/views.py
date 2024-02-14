@@ -62,7 +62,7 @@ def add_to_cart(request, product_id): # functie cu ajutorul cauia putem adauga p
             messages.info(request, f"Cantitatea pentru {product.name} a fost actualizată în coș.")
 
         # Redirectionam catre pagina de shopping cart
-        return redirect(reverse('sweet_market_place8_app:cart'))
+        return redirect(reverse('App_CuptorulMagic:cart'))
     except Exception as e:
         # Putem gestiona eroarea si returnam un mesaj
         messages.error(request, f"Eroare la adăugarea produsului în coș: {str(e)}")

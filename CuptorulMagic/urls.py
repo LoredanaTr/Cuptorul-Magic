@@ -7,8 +7,8 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('App_CuptorulMagic.urls')),
+    path('', include('account.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('', include('account.urls'))
 ]
 
 if settings.DEBUG:
